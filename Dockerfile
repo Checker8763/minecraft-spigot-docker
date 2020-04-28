@@ -29,4 +29,4 @@ EXPOSE 25565
 # Rcon Port
 EXPOSE 25575
 # Regulate the Ram and Cpu via Docker Container
-CMD java -Xms128m -jar /home/spigot/server.jar
+CMD java -Xms128m -jar /home/spigot/server.jar nogui 
