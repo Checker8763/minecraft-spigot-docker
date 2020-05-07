@@ -1,6 +1,6 @@
 #Building Stage
 FROM openjdk:8-jre-alpine AS builder
-ARG SPIGOT_VERSION=1.8.8
+ARG SPIGOT_VERSION=1.15.2
 
 WORKDIR /home/build
 
@@ -14,7 +14,7 @@ FROM openjdk:8-jre-alpine
 
 LABEL maintainer="Tomek Kochanowsky <tomkocha@gmail.com>"
 
-ARG SPIGOT_VERSION=1.8.8
+ARG SPIGOT_VERSION=1.15.2
 
 WORKDIR /home/spigot
 
