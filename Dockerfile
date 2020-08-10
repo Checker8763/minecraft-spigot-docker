@@ -1,11 +1,11 @@
 FROM openjdk:8-jre-alpine AS builder
-ARG SPIGOT_VERSION=1.15.2
+ARG SPIGOT_VERSION=1.16.1
 
 WORKDIR /home/build
 
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
-	apk add git
-RUN java -Xmx1G -jar BuildTools.jar -rev ${SPIGOT_VERSION}
+	apk add git && \
+	java -Xmx1G -jar BuildTools.jar -rev ${SPIGOT_VERSION}
 
 #############################################################################################
 
@@ -13,7 +13,7 @@ FROM openjdk:8-jre-alpine
 
 LABEL maintainer="Tomek Kochanowsky <tomkocha@gmail.com>"
 
-ARG SPIGOT_VERSION=1.15.2
+ARG SPIGOT_VERSION=1.16.1
 ARG RCON_PASS=SpigotAdmin
 
 WORKDIR /home/spigot
@@ -30,8 +30,8 @@ RUN echo "eula=true" > eula.txt && \
 # Run as spigot user for safety
 USER spigot
 # Standard Server Port
-EXPOSE 25565
+EXPOSE 25565 \
 # Rcon Port
-EXPOSE 25575
+	25575
 # Regulate the Ram and Cpu via Docker Container
 CMD java -jar /home/spigot/server.jar
