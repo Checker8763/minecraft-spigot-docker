@@ -4,6 +4,7 @@ ARG SPIGOT_VERSION=1.16.1
 WORKDIR /home/build
 
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
+	apk add git && \
 	java -Xmx1G -jar BuildTools.jar -rev ${SPIGOT_VERSION}
 
 #############################################################################################
