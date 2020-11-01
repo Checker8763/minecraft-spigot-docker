@@ -24,7 +24,7 @@ COPY --from=builder /home/build/spigot-${SPIGOT_VERSION}.jar ./server.jar
 RUN echo "eula=true" > eula.txt && \
 	echo "enable-rcon=true" >> server.properties && \
 	echo rcon.password=${RCON_PASS} >> server.properties && \
-	adduser -S -H -u 1001 spigot && \
+	adduser -S -H -u 1000 spigot && \
 	chown -R spigot /home/spigot
 
 # Run as spigot user for safety
