@@ -1,5 +1,5 @@
 FROM openjdk:8-jre-alpine AS builder
-ARG SPIGOT_VERSION=1.16.1
+ARG SPIGOT_VERSION=1.16.2
 
 WORKDIR /home/build
 
@@ -13,7 +13,7 @@ FROM openjdk:8-jre-alpine
 
 LABEL maintainer="Tomek Kochanowsky <tomkocha@gmail.com>"
 
-ARG SPIGOT_VERSION=1.16.1
+ARG SPIGOT_VERSION=1.16.2
 ARG RCON_PASS=SpigotAdmin
 
 WORKDIR /home/spigot
