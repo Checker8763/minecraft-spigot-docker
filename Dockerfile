@@ -21,7 +21,7 @@ WORKDIR /home/spigot
 
 # Accept Eula add spigot user
 RUN echo "eula=true" > eula.txt && \
-	adduser -S -H -u 1000 spigot
+	adduser -D -u 1000 spigot
 
 #Get the server.jar
 COPY --from=builder --chown=spigot /home/build/spigot-${SPIGOT_VERSION}.jar ./server.jar
