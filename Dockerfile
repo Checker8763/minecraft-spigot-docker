@@ -1,4 +1,5 @@
-FROM openjdk:8-jre-alpine AS builder
+ARG ARCH=
+FROM ${ARCH}openjdk:8-jre-alpine AS builder
 ARG SPIGOT_VERSION=1.16.3
 
 WORKDIR /home/build
@@ -10,8 +11,8 @@ RUN  echo ${SPIGOT_VERSION} && \
 	java -Xmx1G -jar BuildTools.jar -rev ${SPIGOT_VERSION}
 
 #############################################################################################
-
-FROM openjdk:8-jre-alpine
+ARG ARCH=
+FROM ${ARCH}openjdk:8-jre-alpine
 
 LABEL maintainer="Tomek Kochanowsky <tomkocha@gmail.com>"
 
@@ -31,5 +32,7 @@ USER spigot
 EXPOSE 25565 \
 # Rcon Port
 	25575
+# Correctly stop the server
+STOPSIGNAL SIGINT
 # Regulate the Ram and Cpu via Docker Container
 CMD java -jar server.jar
