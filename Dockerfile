@@ -1,6 +1,6 @@
 ARG ARCH=
 FROM ${ARCH}openjdk:8-jre-alpine AS builder
-ARG SPIGOT_VERSION=1.16.3
+ARG SPIGOT_VERSION=1.16.4
 
 WORKDIR /home/build
 
@@ -16,7 +16,7 @@ FROM ${ARCH}openjdk:8-jre-alpine
 
 LABEL maintainer="Tomek Kochanowsky <tomkocha@gmail.com>"
 
-ARG SPIGOT_VERSION=1.16.3
+ARG SPIGOT_VERSION=1.16.4
 
 WORKDIR /home/spigot
 
