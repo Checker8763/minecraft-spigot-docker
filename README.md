@@ -21,7 +21,7 @@
 ### Build fails
 Remove intermediate images:
 
-**This will remove evry unused image!!!**
+**This will remove every unused image!!!**
 
 `docker image prune -f`
 
