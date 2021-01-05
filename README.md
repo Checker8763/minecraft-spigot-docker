@@ -1,4 +1,23 @@
 # Docker image for Minecraft Spigot Server
+## Run the Image
+
+`docker run -dit -p 8877:25565 --name spigot checker8763/spigot`
+
+-dit
+: -d run with detached console, -i interactive otherwise you can not write to console, -t something with tty that is recommended
+
+-p {PORT_ON_YOUR_MACHINE}:25565
+: open the port for access to the server, can be the same as the container one or another
+
+
+## Access the console
+
+`docker attach -it spigot`
+
+To detach without stopping press:
+CTRL-P CTRL-Q
+
+Thats the standard shortcut by docker
 
 ## Build it yourself
 
@@ -33,23 +52,3 @@ Only use if you are familliar with the  screen command.
 
 1. `cd /server/Docker/Spigot`
 2. `screen -S dockerbuild docker build --build-arg SPIGOT_VERSION={INSERT_VERSION} --force-rm -q -t spigot:{INSERT_VERSION} .`
-
-## Run the Image
-
-`docker run -dit -p 8877:25565 --name spigot checker8763/spigot`
-
--dit
-: -d run with detached console, -i interactive otherwise you can not write to console, -t something with tty that is recommended
-
--p {PORT_ON_YOUR_MACHINE}:25565
-: open the port for access to the server, can be the same as the container one or another
-
-
-## Access the console
-
-`docker attach -it spigot`
-
-To detach without stopping press:
-CTRL-P CTRL-Q
-
-Thats the standard shortcut by docker
