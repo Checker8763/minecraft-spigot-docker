@@ -1,13 +1,35 @@
 # Docker image for Minecraft Spigot Server
 ## Run the Image
 
-`docker run -dit -p 8877:25565 --name spigot checker8763/spigot`
+`docker run -dit -p {PORT_ON_YOUR_MACHINE}:25565 --name spigot checker8763/spigot`
 
 -dit
 : -d run with detached console, -i interactive otherwise you can not write to console, -t something with tty that is recommended
 
 -p {PORT_ON_YOUR_MACHINE}:25565
 : open the port for access to the server, can be the same as the container one or another
+
+### Example Docker-Compose
+
+```dockerfile
+version: '2.4'
+services:
+    spigot:
+        image: checker8763/spigot
+        container_name: spigot
+        ports:
+            #Game Port
+            - "{PORT_ON_YOUR_MACHINE}:25565"
+            # OPTIONAL: only if you use rcon -> needs rcon enabled
+            - "{PORT_ON_YOUR_MACHINE}:25575"
+        volumes:
+            # with a volume
+            - "{VOLUME_NAME}:/home/spigot"
+            # Or with bindmound
+            - "{PATH_TO_FOLDER}:/home/spigot"
+volumes:
+    {VOLUME_NAME}: {}
+```
 
 
 ## Access the console
